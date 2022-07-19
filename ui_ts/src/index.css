@@ -1,0 +1,26 @@
+.nav-link {
+  float: left;
+}
+
+.todo {
+    display: flex;
+    align-items: center;
+  
+    width: 100%;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 1.5rem;
+}
+
+.delete {
+    margin-left: auto;
+  
+    border: none;
+    border-radius: 5px;
+    background: none;
+}
+  
+  

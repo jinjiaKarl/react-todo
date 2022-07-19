@@ -1,11 +1,18 @@
 import { useState } from "react";
 import TrashCanIcon from "./TrashCanSvg";
 import axios from "axios";
+import {TodoObj} from "./Todos";
 
-function Todo(props) {
+interface TodoProps {
+  todo: TodoObj;
+  onDeleteSuccess: () => void;  
+}
+
+
+function Todo(props: TodoProps) {
     const [completed, setCompleted] = useState(props.todo.completed);
     const [showDelete, setShowDelete] = useState(false);
-    async function handleCheckClick(e) {
+    async function handleCheckClick(e: any) {
         const payload = {
             completed: e.target.checked,
         };
@@ -14,7 +21,7 @@ function Todo(props) {
         setCompleted(resp.data.todo.completed);
     }
 
-    async function handleDelete(e) {
+    async function handleDelete(e: any) {
         await axios.delete(`/api/todos/${props.todo.id}`);
         props.onDeleteSuccess();
     }

@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import axios from "axios";
+import {TodoObj} from "./Todos";
 
+interface NewTodoFormProps {
+  //定义函数的参数类型和返回值类型
+  onCreateSuccess: (params: TodoObj) => void;
+ // onCreateSuccess(params: TodoObj): void;
+}
 
-function NewTodoInput(props)  {
+//function NewTodoInput(props: {onCreateSuccess: (params: any) =>void}) {}
+function NewTodoInput(props: NewTodoFormProps )   {
   const [showInput, setShowInput] = useState(false);
   const [value, setValue] = useState("");
   
-  async function handleSave(e) {
+  async function handleSave(e: any) {
     // form默认会重新加载页面，阻止该行为
     e.preventDefault();
 
@@ -44,5 +51,6 @@ function NewTodoInput(props)  {
     </div>
   );
 }
+
 
 export default NewTodoInput;
